@@ -12,88 +12,41 @@ class mcd{
 	private:
 		int n;
 		int m;
-		
+			
 	public:
 		mcd();
-		getn();
-		getm();
-		setm(int);
-		setn(int);
-		operacion();
+	int	getn();
+	int	getm();
+	void setm(int);
+	void setn(int);
+	int operacion(int,int);
 };
 	mcd::mcd(){
 		int n;
 		int m;
 	}
-int mcd::setm(int d){
+void mcd::setm(int d){
 		m = d;
 	}
 	
-mcd::setn(int d){
+void mcd::setn(int d){
 		n = d;
 	}
 	
-mcd::getn(){
+int mcd::getn(){
 	return n;
 	}
 	
-mcd::getm(){
+int mcd::getm(){
 	return m;
 	}
 	
-mcd::operacion(){
+int mcd::operacion(int a, int b){	
 	
-	if(m == 0){
-		return n;
-	}
-	else if(n == 0){
-		return m;
-	}
-	else{
-		if(m<n){
-			int aux = m;
-			m = n;
-			n = aux;
+		if(b == 0){
+			return a;
+		}else{
+			operacion(b,a%b);
 		}
-		
-		 // para que el mayor divida al menor siempre
-		 
-		int residuo[30];
-		int cociente[30];
-		int i = 0;
-		int maux = m,naux = n;
-		 
-		 
-		while(residuo[i] != 0){
-			
-		cociente[i] = (maux / naux);
-		residuo[i] = maux % naux;
-		maux = naux;
-		naux = residuo[i];
-		i++;
-		}
-		return naux;
-	}
 	
-}
-	
-	
-int main(){
-	
-	mcd mcd1 = mcd();
-	
-	int n,m;
-	
-	cout<<"\nDigite el valor n: ";
-	cin>>n;
-	cout<<"\nDigite el valor m: ";
-	cin>>m;
-	
-	mcd1.setn(n);
-	mcd1.setm(m);
-	int r = mcd1.operacion();
-	cout<<endl<<r<<" es el mcd de "<<mcd1.getm()<<" y "<<mcd1.getn();
-	
-	
-	return 0;
 }
