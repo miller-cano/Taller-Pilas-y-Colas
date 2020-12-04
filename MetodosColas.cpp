@@ -167,4 +167,16 @@ void Cola::UDigitoCola(Cola A, Cola B, int d){
 	
 }
 
+void Cola :: Recibir_Pila(Pila A){
+	if (A.pilaVacia() == false){
+		
+	while (A.pilaVacia()== false){
+		
+		Encolar(A.desapilar());
+	}
+	}
+	else {
+	cout<<"pila vacia.";}
+}
+
 Cola::~Cola() { }
