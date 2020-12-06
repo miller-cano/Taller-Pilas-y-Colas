@@ -25,5 +25,7 @@ class Cola{
 		void LlenarCola(Cola A);
 		void Mostrar();
 		void UDigitoCola(Cola A, Cola B, int d);
+		void Recibir_Pila(Pila A);
 		~Cola();
+	
 };
