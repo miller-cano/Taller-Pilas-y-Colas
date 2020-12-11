@@ -1,59 +1,68 @@
+/********************************************************************************************
+* -Clase Nodo para la clase cola                                                            *
+* -Grupo de trabajo: MSCA, SAH, SMJ y AMP                                                   *  
+* -Fecha de creación: 04/12/2020                                                            *
+* -Última modificación: 11/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include <stdlib.h>
+#include "ClaseLista.h"
 
 using namespace std;
 
-class nodo{
+class Nodo_C{
 	private:
 		int comensales;
 		string personaReserva;
-		nodo *liga;
+		Nodo_C *liga;
 	public:	
-		nodo();
-		nodo * GetLiga(void);
-		void SetLiga(nodo *);
+		Nodo_C();
+		Nodo_C * GetLiga(void);
+		void SetLiga(Nodo_C *);
 		int GetComensales(void);
 		void SetComensales(int);
 		string GetPersonaReserva(void);
 		void SetPersonaReserva(string);
-		~nodo(void);
+		~Nodo_C(void);
 };
 
-nodo::nodo()
+Nodo_C::Nodo_C()
 {
 	liga = NULL;
 	comensales = 0;
 	personaReserva = "";
 }
 
-int nodo::GetComensales()
+int Nodo_C::GetComensales()
 {
 	return comensales;
 }
 
-string nodo::GetPersonaReserva()
+string Nodo_C::GetPersonaReserva()
 {
 	return personaReserva;
 }
 
-nodo * nodo::GetLiga()
+Nodo_C * Nodo_C::GetLiga()
 {
 	return liga;
 }
 
-void nodo::SetComensales(int n)
+void Nodo_C::SetComensales(int n)
 {
 	comensales = n;
 }
 
-void nodo::SetPersonaReserva(string nombre)
+void Nodo_C::SetPersonaReserva(string nombre)
 {
 	personaReserva = nombre;
 }
 
-void nodo::SetLiga(nodo *l)
+void Nodo_C::SetLiga(Nodo_C *l)
 {
 	liga = l;
 }
 
-nodo::~nodo() { }
+Nodo_C::~Nodo_C() { }

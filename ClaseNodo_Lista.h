@@ -1,61 +1,69 @@
+/********************************************************************************************
+* -Clase Nodo para la clase lista                                                           *
+* -Grupo de trabajo: MSCA, SAH, SMJ y AMP                                                   *  
+* -Fecha de creación: 04/12/2020                                                            *
+* -Última modificación: 11/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include <string.h>
 
 using namespace std;
 
-class Nodo{
+class Nodo_L{
 	private:
 		int nroMesa; 
 		string estadoMesa;
-		Nodo *liga;
+		Nodo_L *liga;
 		
 	public:	
-		Nodo(int);
-		Nodo * GetLiga(void);
-		void SetLiga(Nodo *);
+		Nodo_L(int);
+		Nodo_L * GetLiga(void);
+		void SetLiga(Nodo_L *);
 		int GetNroMesa(void);
 		void SetNroMesa(int);
 		string GetEstadoMesa(void);
 		void SetEstadoMesa(string);
-		~Nodo(void);
+		~Nodo_L(void);
 		friend class Lista;
 };
 
-Nodo::Nodo(int n) 
+Nodo_L::Nodo_L(int n) 
 {
 	nroMesa = n;
 	estadoMesa = "VACIA";
 	liga = NULL;
 }
 
-Nodo * Nodo::GetLiga()
+Nodo_L * Nodo_L::GetLiga()
 {
 	return liga;
 }
 
-void Nodo::SetLiga(Nodo * l)
+void Nodo_L::SetLiga(Nodo_L * l)
 {
 	liga = l;
 }
 		
-int Nodo::GetNroMesa() 
+int Nodo_L::GetNroMesa() 
 {
 	return nroMesa;
 }
 
-void Nodo::SetNroMesa(int nro)
+void Nodo_L::SetNroMesa(int nro)
 {
 	nroMesa = nro;
 }
 
-string Nodo::GetEstadoMesa() 
+string Nodo_L::GetEstadoMesa() 
 {
 	return estadoMesa;
 }
 
-void Nodo::SetEstadoMesa(string e)
+void Nodo_L::SetEstadoMesa(string e)
 {
 	estadoMesa = e;
 }
 
-Nodo::~Nodo() { }
+Nodo_L::~Nodo_L() { }

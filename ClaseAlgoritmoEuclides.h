@@ -1,52 +1,64 @@
-// Ejercicio 8 Tipo 3
-// Santiago Mojica Jimenez
-// Grupo 2
-
+/********************************************************************************************
+* -Algoritmo de Euclides                                                                    *
+* -Grupo de trabajo: MSCA, SAH, SMJ y AMP                                                   *  
+* -Fecha de creación: 04/12/2020                                                            *
+* -Última modificación: 11/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
 
 #include <iostream>
 
 using namespace std;
 
-class mcd{
+class Mcd{
 	
 	private:
 		int n;
 		int m;
 			
 	public:
-		mcd();
-	int	getn();
-	int	getm();
-	void setm(int);
-	void setn(int);
-	int operacion(int,int);
+		Mcd(int , int);
+		int	GetN();
+		int	GetM();
+		void SetM(int);
+		void SetN(int);
+		int Operacion(int,int);
+		~Mcd();
 };
-	mcd::mcd(){
-		int n;
-		int m;
-	}
-void mcd::setm(int d){
-		m = d;
-	}
-	
-void mcd::setn(int d){
-		n = d;
-	}
-	
-int mcd::getn(){
-	return n;
-	}
-	
-int mcd::getm(){
-	return m;
-	}
-	
-int mcd::operacion(int a, int b){	
-	
-		if(b == 0){
-			return a;
-		}else{
-			operacion(b,a%b);
-		}
-	
+
+Mcd::Mcd(int x, int y)
+{
+	n = x;
+	m = y;
 }
+
+void Mcd::SetM(int d){
+	m = d;
+}
+	
+void Mcd::SetN(int d)
+{
+	n = d;
+}
+	
+int Mcd::GetN()
+{
+	return n;
+}
+	
+int Mcd::GetM()
+{
+	return m;
+}
+	
+int Mcd::Operacion(int a, int b)
+{	
+	if(b == 0){
+		return a;
+	}
+	else{
+		Operacion(b,a%b);
+	}
+}
+
+Mcd::~Mcd() { }
