@@ -1,3 +1,11 @@
+/********************************************************************************************
+* -Clase Lista                                                                              *
+* -Grupo de trabajo: MSCA, SAH, SMJ y AMP                                                   *  
+* -Fecha de creación: 04/12/2020                                                            *
+* -Última modificación: 11/12/2020                                                          *
+* -Compilado usando TDM-GCC 4.9.2                                                           *                                                                                 *
+*********************************************************************************************/
+
 #include <iostream>
 #include "ClaseNodo_Lista.h"
 #include <string.h>
@@ -7,13 +15,14 @@ using namespace std;
 class Lista
 {
 	private:
-		Nodo * Punta;
+		Nodo_L * Punta;
 	public:
 		Lista();
-		Nodo * GetPunta(void);
+		Nodo_L * GetPunta(void);
 		void insertarFinal(int nro);
 		void insertarMesas(int n);
 		void mostrarLista();
+		void desocuparMesa(int n);
 		~Lista();
 	friend class Cola;
 };
@@ -23,13 +32,13 @@ Lista::Lista()
 	Punta = NULL;
 }
 
-Nodo * Lista::GetPunta(){
+Nodo_L * Lista::GetPunta(){
 	return Punta;
 }
 
 void Lista::insertarFinal(int nro)
 {
-	Nodo *x = new Nodo(nro), *p;
+	Nodo_L *x = new Nodo_L(nro), *p;
 	if(Punta == NULL)
 	{
 		Punta = x;
@@ -42,9 +51,28 @@ void Lista::insertarFinal(int nro)
 		}
 		p->SetLiga(x);
 	}
-/*	cout<<"\n *********************************************";
-	cout<<"\n |          DATO INSERTADO AL FINAL          |";
-	cout<<"\n *********************************************"<<endl;	*/
+}
+
+void Lista::desocuparMesa(int n)
+{
+	Nodo_L *p;
+	if(Punta == NULL)
+	{
+		cout<<"\nNO HAY MESAS INSERTADAS"<<endl;
+	}
+	else
+	{
+		p = Punta;
+		while(p->GetLiga() != NULL && p->GetNroMesa() != n){
+			p = p->GetLiga();
+		}
+		if(p->GetNroMesa() == n){
+			p->SetEstadoMesa("VACIA");
+		}
+		else{
+			cout<<"\nLA MESA A DESOCUPAR NO FUE ENCONTRADA"<<endl;
+		}	
+	}
 }
 
 void Lista::insertarMesas(int n){
@@ -54,7 +82,7 @@ void Lista::insertarMesas(int n){
 }
 	
 void Lista::mostrarLista(){
-	Nodo *p = Punta;
+	Nodo_L *p = Punta;
 	int i = 0;
 	cout<<"\n\t*********************************";
 	cout<<"\n\t|             MESAS             |";
@@ -67,3 +95,5 @@ void Lista::mostrarLista(){
 	cout<<"\n\t*********************************"<<endl;
 	
 }
+
+Lista::~Lista() { }
